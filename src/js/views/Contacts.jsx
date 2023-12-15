@@ -15,13 +15,13 @@ const Contacts = () => {
       <Link to="/Add-Contact"><button>Add Contact</button></Link>
 
       
-      <ul>
+      <ol>
         {store.contacts.map((contact) => (
           <li key={contact.id}>
             {contact.name} - {contact.email}
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };

@@ -33,7 +33,7 @@ const handleSave = () => {
 							placeholder="Full Name"
 							name="name"
 							onChange={createContact}
-							defaultValue={store.currentContact ? store.currentContact.full_name : ""}
+							defaultValue={store.currentContact ? store.currentContact.name : ""}
 						/>
 					</div>
 					<div className="form-group">

@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 
-			addContact: async input => {
+			AddContact: async input => {
 				setStore({ contacts: [...getStore().contacts, input] });
 				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
 					method: "POST",
