@@ -1,3 +1,8 @@
+import React from "react";
+import { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
+
 export const AddContact = () => {
 	const { store, actions } = useContext(Context);
 	const [contact, setContact] = useState({
@@ -12,7 +17,9 @@ export const AddContact = () => {
 	};
 
 	console.log(store.currentContact);
-
+const handleSave = () => {
+	actions.AddContact(contact)
+ }
 	return (
 		<div className="container">
 			<div>
@@ -62,18 +69,14 @@ export const AddContact = () => {
 							defaultValue={store.currentContact ? store.currentContact.address : ""}
 						/>
 					</div>
-					<Link className="mt-3 w-100 text-center" to="/">
+					
 						<button
-							onClick={() => {
-								store.currentContact
-									? actions.edditContact(contact, store.currentContact)
-									: actions.addContact(contact);
-							}}
+							onClick={() => handleSave() }
 							type="button"
 							className="btn btn-primary form-control">
 							save
 						</button>
-					</Link>
+					
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
 					</Link>

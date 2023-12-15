@@ -1,40 +1,29 @@
-import React, { useContext, useState } from "react";
-import "../../styles/home.css";
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Context } from '../store/appContext';
 
-import { Context } from "../store/appContext";
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+const Contacts = () => {
+  // State to hold the list of contacts
+  const{ store, actions} = useContext(Context)
 
+  // Function to add a new contact
+  
 
-import ContactCard from "../component/ContactCard";
-import Modal from "../component/Modal";
+  return (
+    <div>
+    
+      <Link to="/Add-Contact"><button>Add Contact</button></Link>
 
+      
+      <ul>
+        {store.contacts.map((contact) => (
+          <li key={contact.id}>
+            {contact.name} - {contact.email}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default class Contacts extends Flux.View {
-    constructor(){
-        super();
-        this.state = {
-            showModal: false  
-        };
-    }
-    render() {
-        return (
-            <div className="container">
-                <div>
-                    <p className="text-right my-3">
-                        <Link className="btn btn-success" to="/add">Add new contact</Link>
-                    </p>
-                    <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
-                        <ul className="list-group pull-down" id="contact-list">
-                            <ContactCard onDelete={() => this.setState({ showModal: true})} />
-                            <ContactCard />
-                            <ContactCard />
-                            <ContactCard />
-                        </ul>
-                    </div>
-                </div>
-                <Modal show={this.state.showModal} onClose={() => this.setState({showModal: false})} />
-            </div>
-        );
-    }
-}
+export default Contacts;

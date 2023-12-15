@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			contacts: [],
 			currentContact: ""
 		},
+		
 		actions: {
 			getContacts: apiUrl => {
 				fetch(apiUrl).then(async res => {
@@ -31,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				response = await response.json();
 			},
 
-			edditContact: async (input, contact) => {
+			editContact: async (input, contact) => {
 				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/" + contact.id, {
 					method: "PUT",
 					body: JSON.stringify({
