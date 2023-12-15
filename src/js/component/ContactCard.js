@@ -1,20 +1,17 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Context } from '../store/appContext';
-import imageNames from '/workspaces/HughAnderson23_FakeContactList/src/img/imagePack.jsx';
+import getRandomImage from '/workspaces/HughAnderson23_FakeContactList/src/img/imagePack.jsx';
 
 
-const getRandomImage = () => {
-  const randomIndex = Math.floor(Math.random() * imageNames.length);
-  return `/workspaces/HughAnderson23_FakeContactList/src/img/${imageNames[randomIndex]}`;
-};
 
 const ContactCard = ({ contactId }) => {
   const{ store, actions} = useContext(Context)
+  
   const handleDelete = (contact) => {
-    
     actions.deleteContact(contact);
-  };  
+  };
+  
   return (
     <ol>
         {store.contacts.map((contact) => (
