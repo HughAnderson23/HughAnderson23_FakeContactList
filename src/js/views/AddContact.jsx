@@ -17,12 +17,14 @@ export const AddContact = () => {
 	};
 
 	console.log(store.currentContact);
-const handleSave = () => {
-	actions.AddContact(contact)
- }
+
+	const handleSave = () => {
+		actions.AddContact(contact);
+	};
+
 	return (
 		<div className="container">
-			<div>
+			<div style={styles.formContainer}>
 				<h1 className="text-center mt-5">Add a new contact</h1>
 				<form>
 					<div className="form-group">
@@ -74,10 +76,10 @@ const handleSave = () => {
 							onClick={() => handleSave() }
 							type="button"
 							className="btn btn-primary form-control"
-							>
+						>
 							save
 						</button>
-						</Link>
+					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
 					</Link>
@@ -86,3 +88,12 @@ const handleSave = () => {
 		</div>
 	);
 };
+
+const styles = {
+	formContainer: {
+		maxWidth: '400px', // Set your desired width
+		margin: '0 auto', // Center the form horizontally
+	},
+};
+
+export default AddContact;

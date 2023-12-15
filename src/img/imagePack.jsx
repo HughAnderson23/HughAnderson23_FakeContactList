@@ -8,6 +8,11 @@ const getRandomImage = () => {
     return imageArray[randomIndex];
   };
 
+//   const getRandomImage = (contactId) => {
+//     const randomIndex = contactId % imageArray.length;
+//     return imageArray[randomIndex];
+//   };
+
 const imageArray = [
     IconKid_1,
     IconKid_2,
