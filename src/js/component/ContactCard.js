@@ -11,8 +11,9 @@ const ContactCard = ({ contactId }) => {
   };
 
   const handleEdit = (contact) => {
+    actions.editContact(contact);
     // Add your logic to handle the edit action, for example, navigate to an edit page
-    console.log(`Editing contact: ${contact.name}`);
+    
   };
 
   return (
@@ -30,12 +31,16 @@ const ContactCard = ({ contactId }) => {
             <p style={styles.cardText}>Phone: {contact.phone}</p>
             <p style={styles.cardText}>Address: {contact.address}</p>
             {/* Add more details as needed */}
+           
             <button onClick={() => handleEdit(contact)} style={styles.editButton}>
               ✏️
             </button>
+            
+           
             <button onClick={() => handleDelete(contact)} style={styles.deleteButton}>
               🗑️
             </button>
+            
           </div>
         </li>
       ))}
