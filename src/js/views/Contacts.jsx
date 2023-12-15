@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
-
+import ContactCard from '../component/ContactCard';
 const Contacts = () => {
   // State to hold the list of contacts
   const{ store, actions} = useContext(Context)
@@ -13,15 +13,9 @@ const Contacts = () => {
     <div>
     
       <Link to="/Add-Contact"><button>Add Contact</button></Link>
+      <ContactCard/>
 
-      
-      <ol>
-        {store.contacts.map((contact) => (
-          <li key={contact.id}>
-            {contact.name} - {contact.email}
-          </li>
-        ))}
-      </ol>
+
     </div>
   );
 };

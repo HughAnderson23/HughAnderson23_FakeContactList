@@ -69,14 +69,15 @@ const handleSave = () => {
 							defaultValue={store.currentContact ? store.currentContact.address : ""}
 						/>
 					</div>
-					
+					<Link to="/">
 						<button
 							onClick={() => handleSave() }
 							type="button"
-							className="btn btn-primary form-control">
+							className="btn btn-primary form-control"
+							>
 							save
 						</button>
-					
+						</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
 					</Link>
