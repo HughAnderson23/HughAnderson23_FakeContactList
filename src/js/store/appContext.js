@@ -22,6 +22,22 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			
+			const fetchData = async () => {
+                try {
+                    const response = await fetch("https://playground.4geeks.com/apis/fake/contact/agenda/peeps");
+                    const data = await response.json();
+
+                    // Update the store with the fetched data
+                    state.actions.setData(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            };
+
+            // Call the fetchData function
+            fetchData();
+			
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime
