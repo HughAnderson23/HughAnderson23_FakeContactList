@@ -10,6 +10,11 @@ const ContactCard = ({ contactId }) => {
     actions.deleteContact(contact);
   };
 
+  const handleEdit = (contact) => {
+    // Add your logic to handle the edit action, for example, navigate to an edit page
+    console.log(`Editing contact: ${contact.name}`);
+  };
+
   return (
     <ol style={styles.contactList}>
       {store.contacts.map((contact) => (
@@ -25,8 +30,11 @@ const ContactCard = ({ contactId }) => {
             <p style={styles.cardText}>Phone: {contact.phone}</p>
             <p style={styles.cardText}>Address: {contact.address}</p>
             {/* Add more details as needed */}
+            <button onClick={() => handleEdit(contact)} style={styles.editButton}>
+              ✏️
+            </button>
             <button onClick={() => handleDelete(contact)} style={styles.deleteButton}>
-              Delete Contact
+              🗑️
             </button>
           </div>
         </li>
@@ -57,6 +65,15 @@ const styles = {
   cardText: {
     margin: '5px 0',
   },
+  editButton: {
+    backgroundColor: '#4caf50',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    padding: '8px',
+    marginRight: '5px',
+    cursor: 'pointer',
+  },
   deleteButton: {
     backgroundColor: '#ff6347',
     color: 'white',
@@ -68,5 +85,3 @@ const styles = {
 };
 
 export default ContactCard;
-
-
