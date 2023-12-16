@@ -3,8 +3,7 @@ import IconKid_2 from '/workspaces/HughAnderson23_FakeContactList/src/img/Icon K
 import IconKid_3 from '/workspaces/HughAnderson23_FakeContactList/src/img/Icon Kid_3.jpg'
 import IconKid_4 from '/workspaces/HughAnderson23_FakeContactList/src/img/Icon Kid_4.jpg'
 import IconKid_5 from '/workspaces/HughAnderson23_FakeContactList/src/img/Icon Kid_5.jpg'
-import IconKid_6 from '/workspaces/HughAnderson23_FakeContactList/src/img/Icon Kid_6.jpg'
-import IconKid_7 from '/workspaces/HughAnderson23_FakeContactList/src/img/Icon Kid_7.jpg'
+
 import IconKid_8 from '/workspaces/HughAnderson23_FakeContactList/src/img/Icon Kid_8.jpg'
 
 const getRandomImage = () => {
@@ -23,8 +22,7 @@ const imageArray = [
     IconKid_3,
     IconKid_4,
     IconKid_5,
-    IconKid_6,
-    IconKid_7,
+
     IconKid_8,
 
     // Add more image URLs or file paths as needed
