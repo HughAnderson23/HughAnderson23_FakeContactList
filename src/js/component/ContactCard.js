@@ -11,11 +11,6 @@ const ContactCard = ({ contactId }) => {
     actions.deleteContact(contact);
   };
 
-  const handleGet = (contact) => {
-    actions.getContacts(contact);
-    // Add your logic to handle the edit action, for example, navigate to an edit page
-    
-  };
 
   return (
     <ol style={styles.contactList}>
@@ -33,7 +28,7 @@ const ContactCard = ({ contactId }) => {
             <p style={styles.cardText}>Address: {contact.address}</p>
             {/* Add more details as needed */}
            <Link to="/Edit-Contact">
-            <button onClick={() => handleGet(contact)} style={styles.editButton}>
+            <button  style={styles.editButton}>
               ✏️
             </button>
             </Link>

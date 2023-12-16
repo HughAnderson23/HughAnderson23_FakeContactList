@@ -1,14 +1,14 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	const apiUrl = "https://playground.4geeks.com/apis/fake/contact/"
 	return {
 		store: {
-			apiUrl: "https://playground.4geeks.com/apis/fake/contact/agenda/peeps",
 			contacts: [],
 			currentContact: ""
 		},
 		
 		actions: {
-			getContacts: apiUrl => {
-				fetch(apiUrl).then(async res => {
+			getContacts: () => {
+				fetch(apiUrl + "agenda/peeps").then(async res => {
 					const response = await res.json();
 					setStore({ contacts: [...getStore().contacts, ...response] });
 				});
@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/" + contact.id, {
 					method: "PUT",
 					body: JSON.stringify({
-						full_name: input.name,
+						full_name: input.full_name,
 						email: input.email,
 						agenda_slug: "peeps",
 						address: input.address,
