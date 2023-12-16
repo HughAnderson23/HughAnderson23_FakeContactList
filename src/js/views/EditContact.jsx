@@ -1,15 +1,16 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+
 
 export const EditContactPage = () => {
 	const { store, actions } = useContext(Context);
 	const [contact, setContact] = useState({
-		name: "",
-		email: "",
-		address: "",
-		phone: ""
+		name: store.currentContact.full_name,
+		email: store.currentContact.email,
+		address: store.currentContact.address,
+		phone: store.currentContact.phone
 	});
 
 	const editContact = event => {
@@ -19,7 +20,7 @@ export const EditContactPage = () => {
 	console.log(store.currentContact);
 
 	const handleSave = () => {
-		actions.editContact(contact.id);
+		actions.editContact(contact, store.contactId );
 	};
 
 	return (
@@ -35,7 +36,7 @@ export const EditContactPage = () => {
 							placeholder="Full Name"
 							name="name"
 							onChange={editContact}
-							defaultValue={store.currentContact ? store.currentContact.name : ""}
+							defaultValue={store.currentContact ? store.currentContact.full_name : ""}
 						/>
 					</div>
 					<div className="form-group">
