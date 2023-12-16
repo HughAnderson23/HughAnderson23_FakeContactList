@@ -48,9 +48,7 @@ const ContactCard = ({ contactId }) => {
   );
 };
 
-ContactCard.propTypes = {
-  contactId: PropTypes.number.isRequired,
-};
+
 
 const styles = {
   contactList: {
