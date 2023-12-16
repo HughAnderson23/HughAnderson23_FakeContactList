@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Context } from '../store/appContext';
 import getRandomImage from '/workspaces/HughAnderson23_FakeContactList/src/img/imagePack.jsx';
+import { Link } from 'react-router-dom';
 
 const ContactCard = ({ contactId }) => {
   const { store, actions } = useContext(Context);
@@ -10,8 +11,8 @@ const ContactCard = ({ contactId }) => {
     actions.deleteContact(contact);
   };
 
-  const handleEdit = (contact) => {
-    actions.editContact(contact);
+  const handleGet = (contact) => {
+    actions.getContacts(contact);
     // Add your logic to handle the edit action, for example, navigate to an edit page
     
   };
@@ -31,11 +32,11 @@ const ContactCard = ({ contactId }) => {
             <p style={styles.cardText}>Phone: {contact.phone}</p>
             <p style={styles.cardText}>Address: {contact.address}</p>
             {/* Add more details as needed */}
-           
-            <button onClick={() => handleEdit(contact)} style={styles.editButton}>
+           <Link to="/Edit-Contact">
+            <button onClick={() => handleGet(contact)} style={styles.editButton}>
               ✏️
             </button>
-            
+            </Link>
            
             <button onClick={() => handleDelete(contact)} style={styles.deleteButton}>
               🗑️

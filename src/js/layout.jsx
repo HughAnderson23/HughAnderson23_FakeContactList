@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Contacts from './views/Contacts.jsx';
 import {AddContact} from './views/AddContact.jsx';
 import injectContext from './store/appContext';
+import {EditContactPage} from '/workspaces/HughAnderson23_FakeContactList/src/js/views/EditContact.jsx'
 
 import { Navbar } from './component/navbar.js';
 import {Footer} from './component/footer.js';
@@ -21,7 +22,7 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Contacts />} />
 						<Route path="/Add-Contact" element={<AddContact />} />
-                        {/* <Route path="/Edit-Contact" element={<EditContact/>}/> */}
+                        <Route path="/Edit-Contact" element={<EditContactPage/>}/>
 						
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>

@@ -1,4 +1,9 @@
-export const EditContact = () => {
+import React from "react";
+import { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
+
+export const EditContactPage = () => {
 	const { store, actions } = useContext(Context);
 	const [contact, setContact] = useState({
 		name: "",
@@ -7,20 +12,20 @@ export const EditContact = () => {
 		phone: ""
 	});
 
-	const createContact = event => {
+	const editContact = event => {
 		setContact({ ...contact, [event.target.name]: event.target.value });
 	};
 
 	console.log(store.currentContact);
 
 	const handleSave = () => {
-		actions.AddContact(contact);
+		actions.editContact(contact.id);
 	};
 
 	return (
 		<div className="container">
 			<div style={styles.formContainer}>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<h1 className="text-center mt-5">Edit contact</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
@@ -29,7 +34,7 @@ export const EditContact = () => {
 							className="form-control"
 							placeholder="Full Name"
 							name="name"
-							onChange={createContact}
+							onChange={editContact}
 							defaultValue={store.currentContact ? store.currentContact.name : ""}
 						/>
 					</div>
@@ -40,7 +45,7 @@ export const EditContact = () => {
 							className="form-control"
 							placeholder="Enter email and finish with .com please and dont repeat the email please"
 							name="email"
-							onChange={createContact}
+							onChange={editContact}
 							defaultValue={store.currentContact ? store.currentContact.email : ""}
 						/>
 					</div>
@@ -51,7 +56,7 @@ export const EditContact = () => {
 							className="form-control"
 							placeholder="Enter phone"
 							name="phone"
-							onChange={createContact}
+							onChange={editContact}
 							defaultValue={store.currentContact ? store.currentContact.phone : ""}
 						/>
 					</div>
@@ -62,7 +67,7 @@ export const EditContact = () => {
 							className="form-control"
 							placeholder="Enter address"
 							name="address"
-							onChange={createContact}
+							onChange={editContact}
 							defaultValue={store.currentContact ? store.currentContact.address : ""}
 						/>
 					</div>
@@ -91,4 +96,4 @@ const styles = {
 	},
 };
 
-export default EditContact;
+export default EditContactPage;
