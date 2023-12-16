@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Context } from '../store/appContext';
 import getRandomImage from '/workspaces/HughAnderson23_FakeContactList/src/img/imagePack.jsx';
@@ -10,7 +10,9 @@ const ContactCard = ({ contactId }) => {
   const handleDelete = (contact) => {
     actions.deleteContact(contact);
   };
-
+  useEffect (() => {
+   
+    console.log(store.contacts.length)},[store.contacts])
 
   return (
     <ol style={styles.contactList}>
