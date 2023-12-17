@@ -41,6 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "PUT",
 					body: JSON.stringify({
 						full_name: input.name,
+						// console.log(full_name);
 						email: input.email,
 						agenda_slug: "peeps",
 						address: input.address,
@@ -55,7 +56,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			uploadId: (id) => {
 				setStore ({ contactId: id})
 			}, 
-
 
 			deleteContact: async contact => {
 				setStore({ contacts: getStore().contacts.filter(index => index !== contact) });

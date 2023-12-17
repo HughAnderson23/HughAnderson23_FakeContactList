@@ -35,7 +35,7 @@ export const AddContact = () => {
 							placeholder="Full Name"
 							name="name"
 							onChange={createContact}
-							defaultValue={store.currentContact ? store.currentContact.name : ""}
+							defaultValue={store.currentContact ? store.currentContact.full_name : ""}
 						/>
 					</div>
 					<div className="form-group">
