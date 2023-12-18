@@ -21,7 +21,7 @@ export const EditContactPage = () => {
 
 	const handleSave = () => {
 		actions.editContact(contact, store.contactId );
-		// window.reload()
+		
 	};
 
 

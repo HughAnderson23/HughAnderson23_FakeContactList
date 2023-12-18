@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Context } from '../store/appContext';
-import getRandomImage from '/workspaces/HughAnderson23_FakeContactList/src/img/imagePack.jsx';
+import getRandomImage from './imagePack.jsx';
 import { Link } from 'react-router-dom';
 
 const ContactCard = ({ contactId }) => {

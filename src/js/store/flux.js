@@ -41,7 +41,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "PUT",
 					body: JSON.stringify({
 						full_name: input.name,
-						// console.log(full_name);
 						email: input.email,
 						agenda_slug: "peeps",
 						address: input.address,
