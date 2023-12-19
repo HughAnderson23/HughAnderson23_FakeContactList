@@ -12,6 +12,7 @@ export const AddContact = () => {
 		phone: ""
 	});
 
+
 	const createContact = event => {
 		setContact({ ...contact, [event.target.name]: event.target.value });
 	};
