@@ -20,7 +20,7 @@ export const EditContactPage = () => {
 	console.log(store.currentContact);
 
 	const handleSave = () => {
-		actions.editContact(contact, store.contactId );
+		actions.editContact(contact, store.current);
 		
 	};
 

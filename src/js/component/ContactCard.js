@@ -24,7 +24,7 @@ const ContactCard = ({ contactId }) => {
               style={{ width: '100px', height: '100px', marginBottom: '10px' }}
               alt={`Contact ${contactId}`}
             />
-            <h3 style={styles.cardText}>{contact.name}</h3>
+            <h3 style={styles.cardText}>{contact.full_name}</h3>
             <p style={styles.cardText}>Email: {contact.email}</p>
             <p style={styles.cardText}>Phone: {contact.phone}</p>
             <p style={styles.cardText}>Address: {contact.address}</p>

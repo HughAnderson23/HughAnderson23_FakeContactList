@@ -52,6 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				response = await response.json();
 			},
+			
 			uploadId: (id) => {
 				setStore ({ contactId: id})
 			}, 
