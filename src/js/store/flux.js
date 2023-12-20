@@ -9,9 +9,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 		
 		actions: {
 			getContacts: () => {
+				let store= getStore();
 				fetch(apiUrl + "agenda/peeps").then(async res => {
 					const response = await res.json();
-					setStore({ contacts: [...getStore().contacts, ...response] });
+					setStore({ contacts: [...store.contacts, ...response] });
 				});
 			},
 			currentContact: (contactInfo) =>{
@@ -23,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
 					method: "POST",
 					body: JSON.stringify({
-						full_name: input.name,
+						full_name: input.full_name,
 						email: input.email,
 						agenda_slug: "peeps",
 						address: input.address,
@@ -36,10 +37,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				response = await response.json();
 			},
 
-			editContact: async (input, contact) => {
-				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/" + contact, {
+			editContact: async (input, id) => {
+				let store = getStore()
+				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/" + id, {
 					method: "PUT",
-					body: JSON.stringify({
+					body: JSON.stringify(
+						
+						{
 						full_name: input.name,
 						email: input.email,
 						agenda_slug: "peeps",

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import  {Context}  from '../store/appContext';
 import ContactCard from '../component/ContactCard';
@@ -8,6 +8,8 @@ import ContactCard from '../component/ContactCard';
 const Contacts = () => {
 
   const { store, actions } = useContext(Context);
+
+
 
   return (
     <div style={styles.container}>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const AddContact = () => {
 	const { store, actions } = useContext(Context);
 	const [contact, setContact] = useState({
-		name: "",
+		full_name: "",
 		email: "",
 		address: "",
 		phone: ""
@@ -34,7 +34,7 @@ export const AddContact = () => {
 							type="text"
 							className="form-control"
 							placeholder="Full Name"
-							name="name"
+							name="full_name"
 							onChange={createContact}
 							defaultValue={store.currentContact ? store.currentContact.full_name : ""}
 						/>
