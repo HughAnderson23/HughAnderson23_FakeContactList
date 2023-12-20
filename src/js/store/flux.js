@@ -12,7 +12,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let store= getStore();
 				fetch(apiUrl + "agenda/peeps").then(async res => {
 					const response = await res.json();
-					setStore({ contacts: [...store.contacts, ...response] });
+					const newContactList=[...store.contacts, ...response];
+					let sortedList = newContactList.sort(
+						(a,b) => b.full_name.toLowerCase() - a.full_name.toLowerCase()
+					)
+					console.log(newContactList, "new contact list")
+					console.log(sortedList, "sorted list")
+					setStore({ contacts: sortedList });
 				});
 			},
 			currentContact: (contactInfo) =>{
