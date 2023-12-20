@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Contacts from './views/Contacts.jsx';
 import {AddContact} from './views/AddContact.jsx';
 import injectContext from './store/appContext';
-import {EditContactPage} from '/workspaces/HughAnderson23_FakeContactList/src/js/views/EditContact.jsx'
+import EditContactPage from '/src/js/views/EditContact.jsx';
 
 import { Navbar } from './component/navbar.js';
 import {Footer} from './component/footer.js';
