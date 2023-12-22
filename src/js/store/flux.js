@@ -25,8 +25,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore ({currentContact: contactInfo})
 			},
 
-			AddContact: async input => {
-				setStore({ contacts: [...getStore().contacts, input] });
+			addContact: async (input) => {
+				setStore((prevStore) => {
+					const isContactExist = prevStore.contacts.some((contact) => contact.id === input.id);
+					if (!isContactExist) {
+						return { contacts: [...prevStore.contacts, input] };
+					}
+					return prevStore;
+				});
+			
 				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
 					method: "POST",
 					body: JSON.stringify({
@@ -40,8 +47,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					})
 				});
+			
 				response = await response.json();
 			},
+			
 
 			editContact: async (input, id) => {
 				let store = getStore();

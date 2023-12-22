@@ -20,7 +20,7 @@ export const AddContact = () => {
 	console.log(store.currentContact);
 
 	const handleSave = () => {
-		actions.AddContact(contact);
+		actions.addContact(contact);
 	};
 
 	return (
