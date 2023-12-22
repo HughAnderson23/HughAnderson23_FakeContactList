@@ -48,6 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}); 
 			
 				response = await response.json();
+				window.location.href = '/';
 				// setStore([ contacts ]);
 				// if (response.success) {
 				// 	actions.getContacts(); // Fetch contacts after adding a new one
@@ -73,6 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 				response = await response.json();
+				window.location.href = '/';
 				// let newArray = store.contacts.filter((item)=> {
 				// 	item.id !== input.id;
 				// });
