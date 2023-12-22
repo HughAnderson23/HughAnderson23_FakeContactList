@@ -44,23 +44,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			editContact: async (input, id) => {
-				let store = getStore()
+				let store = getStore();
+				let userInfo = {
+					full_name: input.name,
+					email: input.email,
+					agenda_slug: "peeps",
+					address: input.address,
+					phone: input.phone,
+					id: input.id
+				}
 				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/" + id, {
 					method: "PUT",
-					body: JSON.stringify(
-						
-						{
-						full_name: input.name,
-						email: input.email,
-						agenda_slug: "peeps",
-						address: input.address,
-						phone: input.phone
-					}),
+					body: JSON.stringify(userInfo),
 					headers: {
 						"Content-Type": "application/json"
 					}
 				});
-				response = await response.json();
+				let data = await response.json();
+				let newArray = store.contacts.filter((item)=> {
+					item.id !== input.id;
+				});
+				newArray.push(userInfo);
+				setStore ({contacts: newArray });
 			},
 			
 			uploadId: (id) => {

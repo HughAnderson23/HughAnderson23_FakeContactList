@@ -6,9 +6,25 @@ import ContactCard from '../component/ContactCard';
 
 
 const Contacts = () => {
-
   const { store, actions } = useContext(Context);
+  const [contacts, setContacts] = useState([]);
+  useEffect(() => {
+    actions.getContacts()
 
+  }, []);
+  
+  useEffect(() => {
+    setContacts(store.contacts)
+    console.log(store.contacts)
+  }, [store.contacts]);
+  
+  
+  
+  
+  // useEffect(() => {
+  //   actions.getContacts();
+   
+  // }, []);
 
 
   return (
@@ -17,7 +33,10 @@ const Contacts = () => {
         <button style={styles.addButton}>Add Contact</button>
       </Link>
       <div style={styles.contactCardContainer}>
-        <ContactCard />
+      {contacts?.map((contact, index) => (
+        <ContactCard contact={contact} />
+      ))}
+        
       </div>
     </div>
   );
