@@ -21,10 +21,10 @@ const Contacts = () => {
   
   
   
-  // useEffect(() => {
-  //   actions.getContacts();
+  useEffect(() => {
+    actions.getContacts([]);
    
-  // }, []);
+  }, []);
 
 
   return (

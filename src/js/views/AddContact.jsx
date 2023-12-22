@@ -20,7 +20,7 @@ export const AddContact = () => {
 	console.log(store.currentContact);
 
 	const handleSave = () => {
-		actions.addContact(contact);
+		actions.AddContact(contact);
 	};
 
 	return (
@@ -36,7 +36,7 @@ export const AddContact = () => {
 							placeholder="Full Name"
 							name="full_name"
 							onChange={createContact}
-							defaultValue={store.currentContact ? store.currentContact.full_name : ""}
+							defaultValue={store.contact ? store.contact.full_name : ""}
 						/>
 					</div>
 					<div className="form-group">
@@ -47,7 +47,7 @@ export const AddContact = () => {
 							placeholder="Enter email and finish with .com please and dont repeat the email please"
 							name="email"
 							onChange={createContact}
-							defaultValue={store.currentContact ? store.currentContact.email : ""}
+							defaultValue={store.contact ? store.contact.email : ""}
 						/>
 					</div>
 					<div className="form-group">
@@ -58,7 +58,7 @@ export const AddContact = () => {
 							placeholder="Enter phone"
 							name="phone"
 							onChange={createContact}
-							defaultValue={store.currentContact ? store.currentContact.phone : ""}
+							defaultValue={store.contact ? store.contact.phone : ""}
 						/>
 					</div>
 					<div className="form-group">
@@ -69,7 +69,7 @@ export const AddContact = () => {
 							placeholder="Enter address"
 							name="address"
 							onChange={createContact}
-							defaultValue={store.currentContact ? store.currentContact.address : ""}
+							defaultValue={store.contact ? store.contact.address : ""}
 						/>
 					</div>
 					<Link to="/">
